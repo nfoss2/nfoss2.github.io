@@ -375,8 +375,9 @@ pre code {
 <p>This post is a part of a series about <code>mlr3</code>, see the
 other posts:</p>
 <ul>
-<li><p>Create your first R Project</p></li>
+<li><p>Create your first R Project: <a href="https://nfoss2.github.io/mlr3_first_project_post">link</a></p></li>
 <li><p>Learn the right way to train simple models (this post)</p></li>
+<li><p>learn how to impute missing values with mlr3 pipelines: <a href="https://nfoss2.github.io/mlr3_imputation_post">link</a></p></li>
 </ul>
 <p>The purpose of this post is to introduce you to <code>mlr3</code>
 learners and give an example of how to train a model (showing the best
@@ -449,7 +450,7 @@ per column.</p>
 ##         island            sex           year 
 ##              0             11              0</code></pre>
 <p>For the purposes of this post we won’t worry about the missing
-values, however, this topic is discussed in a <a href="?">post</a> about
+values, however, this topic is discussed in a <a href="https://nfoss2.github.io/mlr3_imputation_post">post</a> about
 imputation.</p>
 </div>
 <div id="sec-learner-setup" class="section level2">
@@ -579,16 +580,16 @@ than the defaults here.</p>
 <code>store_models</code> to TRUE so we can look at individual models
 later (this defaults to FALSE to limit memory consumption).</p>
 <pre class="r"><code>rr = resample(task, learner, cv, store_models = TRUE)</code></pre>
-<pre><code>## INFO  [14:21:37.882] [mlr3] Applying learner &#39;classif.rpart&#39; on task &#39;penguins&#39; (iter 1/10)
-## INFO  [14:21:38.058] [mlr3] Applying learner &#39;classif.rpart&#39; on task &#39;penguins&#39; (iter 2/10)
-## INFO  [14:21:38.082] [mlr3] Applying learner &#39;classif.rpart&#39; on task &#39;penguins&#39; (iter 3/10)
-## INFO  [14:21:38.100] [mlr3] Applying learner &#39;classif.rpart&#39; on task &#39;penguins&#39; (iter 4/10)
-## INFO  [14:21:38.119] [mlr3] Applying learner &#39;classif.rpart&#39; on task &#39;penguins&#39; (iter 5/10)
-## INFO  [14:21:38.140] [mlr3] Applying learner &#39;classif.rpart&#39; on task &#39;penguins&#39; (iter 6/10)
-## INFO  [14:21:38.158] [mlr3] Applying learner &#39;classif.rpart&#39; on task &#39;penguins&#39; (iter 7/10)
-## INFO  [14:21:38.180] [mlr3] Applying learner &#39;classif.rpart&#39; on task &#39;penguins&#39; (iter 8/10)
-## INFO  [14:21:38.199] [mlr3] Applying learner &#39;classif.rpart&#39; on task &#39;penguins&#39; (iter 9/10)
-## INFO  [14:21:38.223] [mlr3] Applying learner &#39;classif.rpart&#39; on task &#39;penguins&#39; (iter 10/10)</code></pre>
+<pre><code>## INFO  [14:56:20.817] [mlr3] Applying learner &#39;classif.rpart&#39; on task &#39;penguins&#39; (iter 1/10)
+## INFO  [14:56:21.031] [mlr3] Applying learner &#39;classif.rpart&#39; on task &#39;penguins&#39; (iter 2/10)
+## INFO  [14:56:21.057] [mlr3] Applying learner &#39;classif.rpart&#39; on task &#39;penguins&#39; (iter 3/10)
+## INFO  [14:56:21.081] [mlr3] Applying learner &#39;classif.rpart&#39; on task &#39;penguins&#39; (iter 4/10)
+## INFO  [14:56:21.102] [mlr3] Applying learner &#39;classif.rpart&#39; on task &#39;penguins&#39; (iter 5/10)
+## INFO  [14:56:21.121] [mlr3] Applying learner &#39;classif.rpart&#39; on task &#39;penguins&#39; (iter 6/10)
+## INFO  [14:56:21.140] [mlr3] Applying learner &#39;classif.rpart&#39; on task &#39;penguins&#39; (iter 7/10)
+## INFO  [14:56:21.160] [mlr3] Applying learner &#39;classif.rpart&#39; on task &#39;penguins&#39; (iter 8/10)
+## INFO  [14:56:21.179] [mlr3] Applying learner &#39;classif.rpart&#39; on task &#39;penguins&#39; (iter 9/10)
+## INFO  [14:56:21.197] [mlr3] Applying learner &#39;classif.rpart&#39; on task &#39;penguins&#39; (iter 10/10)</code></pre>
 <pre class="r"><code>rr</code></pre>
 <pre><code>## &lt;ResampleResult&gt; of 10 iterations
 ## * Task: penguins

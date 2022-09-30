@@ -375,8 +375,8 @@ pre code {
 <p>This post is a part of a series about <code>mlr3</code>, see the
 other posts:</p>
 <ul>
-<li><p>Create your first R Project</p></li>
-<li><p>Learn the right way to train simple models</p></li>
+<li><p>Create your first R Project: <a href="https://nfoss2.github.io/mlr3_first_project_post">link</a></p></li>
+<li><p>Learn the right way to train simple models: <a href="https://nfoss2.github.io/mlr3_models_post">link</a></p></li>
 <li><p>Learn how to impute missing values with pipelines (this
 post)</p></li>
 </ul>
@@ -420,108 +420,80 @@ learners. To see if your data set has missing values use
 (removing or replacing) missing values in a data set.</p>
 <p>There are many different kinds of imputation, most have
 <code>mlr3</code> implementations. Short explanations of each are in
-this section.</p>
-<div id="sec-impute-constant" class="section level3">
-<h3>Impute Features by a Constant (“imputeconstant”)</h3>
-<p><strong>inputeconstant</strong> is a imputation method that replaces
-all missing values with a constant. It has the following parameters:</p>
-<ul>
-<li><p><code>constant</code> - the constant by which all missing values
-will be replaced.</p></li>
-<li><p><code>affect_columns</code> - (optional) the column(s) that will
-have missing values replaced by the specified constant.</p></li>
-</ul>
-<p>Read more <a href="https://mlr3pipelines.mlr-org.com/reference/mlr_pipeops_imputeconstant.html">here</a>.</p>
-</div>
-<div id="sec-impute-histogram" class="section level3">
-<h3>Impute Features by a Histogram (“imputehist”)</h3>
-<p><strong>imputehist</strong> is a imputation method that replaces all
-missing values from a histogram. It has the following parameters:</p>
-<ul>
-<li><code>affect_columns</code> - (optional) the column(s) that will
-have missing values replaced.</li>
-</ul>
-<p>Read more <a href="https://mlr3pipelines.mlr-org.com/reference/mlr_pipeops_imputehist.html">here</a>.</p>
-</div>
-<div id="sec-impute-learner" class="section level3">
-<h3>Impute Features by a Learner (“imputelearner”)</h3>
-<p><strong>imputelearner</strong> is a imputation method that replaces
-all missing values by fitting a learner. It has the following
-parameters:</p>
-<ul>
-<li><p><code>context_columns</code> - (optional) the columns that the
-learner will use to predict the value for the
-<code>affect_columns</code>. Note: These columns’ types must be
-compatible with the feature types of the learner.</p></li>
-<li><p><code>affect_columns</code> - (optional) the column(s) that will
-have missing values replaced. Note: this column’s type must be
-compatible with the target type of the learner.</p></li>
-<li><p><code>learner</code> - The learner that will train and predict
-the missing values.</p></li>
-</ul>
-<p>Read more <a href="https://mlr3pipelines.mlr-org.com/reference/mlr_pipeops_imputelearner.html">here</a>.</p>
-</div>
-<div id="sec-impute-mean" class="section level3">
-<h3>Impute Features by Mean (“imputemean”)</h3>
-<p><strong>imputemean</strong> is a imputation method that replaces all
-numerical missing values with the mean. It has the following
-parameters:</p>
-<ul>
-<li><code>affect_columns</code> - (optional) the column(s) that will
-have missing values replaced.</li>
-</ul>
-<p>Read more <a href="https://mlr3pipelines.mlr-org.com/reference/mlr_pipeops_imputemean.html">here</a>.</p>
-</div>
-<div id="sec-impute-median" class="section level3">
-<h3>Impute Features by Median (“imputemedian”)</h3>
-<p><strong>imputemedian</strong> is a imputation method that replaces
-all numerical missing values with the median. It has the following
-parameters:</p>
-<ul>
-<li><code>affect_columns</code> - (optional) the column(s) that will
-have missing values replaced.</li>
-</ul>
-<p>Read more <a href="https://mlr3pipelines.mlr-org.com/reference/mlr_pipeops_imputemedian.html">here</a>.</p>
-</div>
-<div id="sec-impute-mode" class="section level3">
-<h3>Impute Features by Mode (“imputemode”)</h3>
-<p><strong>imputemode</strong> is a imputation method that replaces all
-numerical missing values with the mode. It has the following
-parameters:</p>
-<ul>
-<li><code>affect_columns</code> - (optional) the column(s) that will
-have missing values replaced.</li>
-</ul>
-<p>Read more <a href="https://mlr3pipelines.mlr-org.com/reference/mlr_pipeops_imputemode.html">here</a>.</p>
-</div>
-<div id="sec-impute-oor" class="section level3">
-<h3>Out of Range Imputation (“imputeoor”)</h3>
-<p><strong>imputeoor</strong> is a imputation method that replaces all
-numerical missing values with constant values shifted below the minimum
-or above the maximum. This method is useful in the context of tree-based
-methods. It has the following parameters:</p>
-<ul>
-<li><p><code>min</code> - logical value specifying if values should be
-shifted below the minimum (true) or not (false).</p></li>
-<li><p><code>offset</code> - non-negative offset above maximum or below
-minimum.</p></li>
-<li><p><code>multiplier</code> - non-negative multiplier.</p></li>
-<li><p><code>affect_columns</code> - (optional) the column(s) that will
-have missing values replaced.</p></li>
-</ul>
-<p>Read more <a href="https://mlr3pipelines.mlr-org.com/reference/mlr_pipeops_imputeoor.html">here</a>.</p>
-</div>
-<div id="sec-impute-sample" class="section level3">
-<h3>Impute Features by Sampling (“imputesample”)</h3>
-<p><strong>imputesample</strong> is a imputation method that replaces
-all numerical missing values by sampling from the non-missing training
-data. It has the following parameters:</p>
-<ul>
-<li><code>affect_columns</code> - (optional) the column(s) that will
-have missing values replaced.</li>
-</ul>
-<p>Read more <a href="https://mlr3pipelines.mlr-org.com/reference/mlr_pipeops_imputesample.html">here</a>.</p>
-</div>
+this table.</p>
+<table>
+<caption>Imputation methods</caption>
+<colgroup>
+<col width="6%" />
+<col width="53%" />
+<col width="9%" />
+<col width="30%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Imputation Method</th>
+<th>Description</th>
+<th>Parameters</th>
+<th>Link to Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“imputeconstant”</td>
+<td>Replaces all missing values with a constant.</td>
+<td><code>constant</code></td>
+<td>Read more <a href="https://mlr3pipelines.mlr-org.com/reference/mlr_pipeops_imputeconstant.html">here</a>.</td>
+</tr>
+<tr class="even">
+<td>“imputehist”</td>
+<td>Replaces all missing values from a histogram.</td>
+<td></td>
+<td>Read more <a href="https://mlr3pipelines.mlr-org.com/reference/mlr_pipeops_imputehist.html">here</a>.</td>
+</tr>
+<tr class="odd">
+<td>“imputelearner”</td>
+<td>Replaces all missing values by fitting a learner.</td>
+<td><code>learner</code></td>
+<td>Read more <a href="https://mlr3pipelines.mlr-org.com/reference/mlr_pipeops_imputelearner.html">here</a>.</td>
+</tr>
+<tr class="even">
+<td>“imputemean”</td>
+<td>Replaces all numerical missing values with the mean or the
+column.</td>
+<td></td>
+<td>Read more <a href="https://mlr3pipelines.mlr-org.com/reference/mlr_pipeops_imputemean.html">here</a>.</td>
+</tr>
+<tr class="odd">
+<td>“imputemedian”</td>
+<td>Replaces all numerical missing values with the median or the
+column.</td>
+<td></td>
+<td>Read more <a href="https://mlr3pipelines.mlr-org.com/reference/mlr_pipeops_imputemedian.html">here</a>.</td>
+</tr>
+<tr class="even">
+<td>“imputemode”</td>
+<td>Replaces all numerical missing values with the mode or the
+column.</td>
+<td></td>
+<td>Read more <a href="https://mlr3pipelines.mlr-org.com/reference/mlr_pipeops_imputemode.html">here</a>.</td>
+</tr>
+<tr class="odd">
+<td>“imputeoor”</td>
+<td>Replaces all numerical missing values with constant values shifted
+below the minimum or above the maximum. This method is useful in the
+context of tree-based methods.</td>
+<td><code>min</code>, <code>offset</code>, <code>multiplier</code></td>
+<td>Read more <a href="https://mlr3pipelines.mlr-org.com/reference/mlr_pipeops_imputeoor.html">here</a>.</td>
+</tr>
+<tr class="even">
+<td>“imputesample”</td>
+<td>Replaces all numerical missing values by sampling from the
+non-missing training data.</td>
+<td></td>
+<td>Read more <a href="https://mlr3pipelines.mlr-org.com/reference/mlr_pipeops_imputesample.html">here</a>.</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="sec-create-pipeline" class="section level2">
 <h2>Create Pipeline</h2>
@@ -551,16 +523,16 @@ can use a resampling method.</p>
 <pre class="r"><code>grlrn = as_learner(graph)</code></pre>
 <p>Now for the training step</p>
 <pre class="r"><code>rr = resample(task, grlrn, cv)</code></pre>
-<pre><code>## INFO  [15:39:47.287] [mlr3] Applying learner &#39;imputesample.classif.rpart&#39; on task &#39;penguins&#39; (iter 1/10)
-## INFO  [15:39:47.480] [mlr3] Applying learner &#39;imputesample.classif.rpart&#39; on task &#39;penguins&#39; (iter 2/10)
-## INFO  [15:39:47.577] [mlr3] Applying learner &#39;imputesample.classif.rpart&#39; on task &#39;penguins&#39; (iter 3/10)
-## INFO  [15:39:47.680] [mlr3] Applying learner &#39;imputesample.classif.rpart&#39; on task &#39;penguins&#39; (iter 4/10)
-## INFO  [15:39:47.787] [mlr3] Applying learner &#39;imputesample.classif.rpart&#39; on task &#39;penguins&#39; (iter 5/10)
-## INFO  [15:39:47.950] [mlr3] Applying learner &#39;imputesample.classif.rpart&#39; on task &#39;penguins&#39; (iter 6/10)
-## INFO  [15:39:48.078] [mlr3] Applying learner &#39;imputesample.classif.rpart&#39; on task &#39;penguins&#39; (iter 7/10)
-## INFO  [15:39:48.192] [mlr3] Applying learner &#39;imputesample.classif.rpart&#39; on task &#39;penguins&#39; (iter 8/10)
-## INFO  [15:39:48.311] [mlr3] Applying learner &#39;imputesample.classif.rpart&#39; on task &#39;penguins&#39; (iter 9/10)
-## INFO  [15:39:48.436] [mlr3] Applying learner &#39;imputesample.classif.rpart&#39; on task &#39;penguins&#39; (iter 10/10)</code></pre>
+<pre><code>## INFO  [15:12:35.893] [mlr3] Applying learner &#39;imputesample.classif.rpart&#39; on task &#39;penguins&#39; (iter 1/10)
+## INFO  [15:12:36.095] [mlr3] Applying learner &#39;imputesample.classif.rpart&#39; on task &#39;penguins&#39; (iter 2/10)
+## INFO  [15:12:36.183] [mlr3] Applying learner &#39;imputesample.classif.rpart&#39; on task &#39;penguins&#39; (iter 3/10)
+## INFO  [15:12:36.282] [mlr3] Applying learner &#39;imputesample.classif.rpart&#39; on task &#39;penguins&#39; (iter 4/10)
+## INFO  [15:12:36.383] [mlr3] Applying learner &#39;imputesample.classif.rpart&#39; on task &#39;penguins&#39; (iter 5/10)
+## INFO  [15:12:36.492] [mlr3] Applying learner &#39;imputesample.classif.rpart&#39; on task &#39;penguins&#39; (iter 6/10)
+## INFO  [15:12:36.622] [mlr3] Applying learner &#39;imputesample.classif.rpart&#39; on task &#39;penguins&#39; (iter 7/10)
+## INFO  [15:12:36.733] [mlr3] Applying learner &#39;imputesample.classif.rpart&#39; on task &#39;penguins&#39; (iter 8/10)
+## INFO  [15:12:36.838] [mlr3] Applying learner &#39;imputesample.classif.rpart&#39; on task &#39;penguins&#39; (iter 9/10)
+## INFO  [15:12:36.936] [mlr3] Applying learner &#39;imputesample.classif.rpart&#39; on task &#39;penguins&#39; (iter 10/10)</code></pre>
 <p>Now that the training is complete we can see the performance of the
 model.</p>
 <pre class="r"><code>rr$aggregate(measure)</code></pre>
